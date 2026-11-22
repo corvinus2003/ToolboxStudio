@@ -31,19 +31,36 @@ Archive with the "Any Mac" destination to get a universal (Apple Silicon + Intel
 - Screenshots (2880×1800, no alpha): [screenshots/](screenshots/), remade with `scripts/appstore-shots/`
 - Privacy policy: [docs/privacy.md](../docs/privacy.md)
 
+## Upload
+
+```sh
+scripts/appstore-upload.sh            # signed package in build/appstore/export
+scripts/appstore-upload.sh --upload   # same, then upload to App Store Connect
+```
+
+Export manages the build number: it raises it past the last uploaded build on its own.
+
+## App Store Connect
+
+| | |
+| --- | --- |
+| App ID | 6837013838 |
+| Status | 1.0 (1) waiting for review, submitted 2026-11-20 |
+| TestFlight | internal group "Toolbox Studio Beta Test"; external group "Public Beta" (build 1 in Beta App Review) |
+| TestFlight public link | https://testflight.apple.com/join/rqpNUcHA (opens once the beta build is approved) |
+| Support / Marketing URL | https://github.com/corvinus2003/ToolboxStudio |
+
 ## Publishing checklist
 
 In Xcode
-- [ ] Xcode ▸ Settings ▸ Accounts: sign in with the Apple ID of the developer account
-- [ ] Set the team (`DEVELOPMENT_TEAM` in `project.yml`, or in the target's Signing & Capabilities)
-- [ ] Product ▸ Archive, then Distribute App ▸ App Store Connect
+- [x] Xcode ▸ Settings ▸ Accounts: signed in with the developer Apple ID
+- [x] Team set (`DEVELOPMENT_TEAM` in `project.yml`)
+- [x] Archive and upload (now `scripts/appstore-upload.sh --upload`)
 
-In App Store Connect (only the account holder can do these)
-- [ ] Agreements: accept the Paid Applications Agreement
-- [ ] Banking and tax forms
-- [ ] Optional: enroll in the App Store Small Business Program (15% commission instead of 30%)
-- [ ] New macOS app: name "Toolbox Studio", bundle ID `io.github.corvinus2003.toolbox`, SKU
-- [ ] Price: USD 9.99
-- [ ] Description, keywords, screenshots (2880×1800 or 1440×900), support URL, privacy policy URL
-- [ ] App Privacy: "Data Not Collected"; category Photo & Video; age rating 4+
-- [ ] Pick the uploaded build and submit for review
+In App Store Connect
+- [x] New macOS app "Toolbox Studio", bundle ID `io.github.corvinus2003.toolbox`
+- [x] Description, keywords, screenshots, support and marketing URL, privacy policy URL
+- [x] App Privacy "Data Not Collected"; age rating
+- [x] Build submitted for review (free)
+- [x] TestFlight: test information, internal and external groups, public link
+- [ ] If the app becomes paid: Paid Applications Agreement, banking and tax, DSA trader status, price

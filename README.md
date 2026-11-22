@@ -35,7 +35,7 @@ in this repository:
 | Everything else | Same nodes, same canvas, same results | Same nodes, same canvas, same results |
 
 **Unboxed** because it lives outside the App Store's sandbox, which is what lets it download from the web.
-The App Store link goes here as soon as Apple approves it.
+The App Store link goes here as soon as Apple approves it. Until then you can try the App Store edition through [TestFlight](https://testflight.apple.com/join/rqpNUcHA) (the link opens once Apple approves the beta build).
 
 ## Download
 
